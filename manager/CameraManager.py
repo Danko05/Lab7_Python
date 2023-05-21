@@ -1,28 +1,44 @@
-from DigitalCamera import DigitalCamera
-from FilmCamera import FilmCamera
-from VideoCamera import VideoCamera
-from MirrorlessCamera import MirrorlessCamera
+from models.DigitalCamera import DigitalCamera
+from models.FilmCamera import FilmCamera
+from models.VideoCamera import VideoCamera
+from models.MirrorlessCamera import MirrorlessCamera
 
 
 class CameraManager:
+    """
+    A class that manages a list of cameras.
+    """
     cameras = []
 
     def add_camera(self, camera):
+        """
+        Adds a camera to the list of cameras.
+        :param camera: The camera to add.
+        """
         self.cameras.append(camera)
 
     def print_cameras(self):
+        """
+        Prints information about all the cameras in the list.
+        """
         for camera in self.cameras:
             print(camera)
             print(camera.takePhotos())
             print()
 
     def find_camera_by_model(self):
+        """
+        Finds and prints cameras with the model "Canon".
+        """
         find_camera = filter(lambda camera: camera.model == "Canon", self.cameras)
         print("Camera with model Canon:")
         for camera in find_camera:
             print(camera)
 
     def find_camera_with_photos_count_greater_than(self):
+        """
+        Finds and prints cameras with a photos count greater than 1000.
+        """
         find_camera = filter(lambda camera: camera.photos_count > 1000, self.cameras)
         print()
         print("Camera greater 1000 photos : ")
@@ -31,6 +47,12 @@ class CameraManager:
 
 
 def main():
+    """
+    Creates an instance of the CameraManager class and adds several cameras to it,
+    including instances of the DigitalCamera, FilmCamera, VideoCamera, and MirrorlessCamera classes.
+    Finally, calls several methods on the manager instance to print information about the cameras
+    and find cameras based on certain criteria.
+    """
     manager = CameraManager()
 
     digital_camera1 = DigitalCamera("Sony", "EOS 5D Mark IV", "EF 24-105mm f/4L IS II USM", "1645x1647", 6.0, "SD",
