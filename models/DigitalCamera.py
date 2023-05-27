@@ -1,3 +1,4 @@
+# pylint: disable = import-error
 from models.Camera import Camera
 
 
@@ -5,6 +6,7 @@ class DigitalCamera(Camera):
     """
     A class that represents a digital camera and inherits from the Camera class.
     """
+
     def __init__(self, brand, model, lens, resolution, zoom, memory_card_type, photos_count):
         """
         Initializes a new instance of the DigitalCamera class.
@@ -16,31 +18,42 @@ class DigitalCamera(Camera):
         :param memory_card_type: The type of memory card used by the camera.
         :param photos_count: The number of photos taken by the camera.
         """
-        super().__init__(model, resolution, zoom, memory_card_type, photos_count, brand, lens)
+        super().__init__(brand, model, lens)
         self.resolution = resolution
         self.zoom = zoom
         self.memory_card_type = memory_card_type
         self.photos_count = photos_count
+        self.the_most_popular_brands_set = {"Canon", "Sony"}
+
+    def reset_zoom(self):
+        """
+        Resets the zoom level of the camera to 1.0.
+        """
+        self.zoom = 1.0
 
     def save_photo(self):
         """
-        Saves a photo taken by the camera.
+        Increments the number of photos taken by the camera by 1.
         """
-        super().save_photo()
+        self.photos_count += 1
+        return self.photos_count
 
     def erase_memory(self):
         """
-        Erases the memory card of the camera.
+        Resets the number of photos taken by the camera to 0.
         """
-        super().erase_memory()
+        self.photos_count = 0
 
     def change_settings(self, resolution, zoom):
         """
-        Changes the settings of the camera.
-        :param resolution: The new resolution to set.
-        :param zoom: The new zoom to set.
+        Changes the resolution and zoom level of the camera.
+
+        Args:
+        - resolution (str): The new resolution of the camera.
+        - zoom (int): The new zoom level of the camera.
         """
-        super().change_settings(resolution, zoom)
+        self.resolution = resolution
+        self.zoom = zoom
 
     def takePhotos(self):
         """
@@ -54,5 +67,10 @@ class DigitalCamera(Camera):
         Returns a string representation of the DigitalCamera instance.
         :return: A string representation of the DigitalCamera instance.
         """
-        return f"DigitalCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.erase_memory}, " \
+        return f"DigitalCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
                f"photos_count={self.photos_count})"
+
+    def __repr__(self):
+        return f"Digital_camera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
+               f"photos_count={self.photos_count})"
+

@@ -1,3 +1,4 @@
+# pylint: disable = import-error
 from models.Camera import Camera
 
 
@@ -5,8 +6,10 @@ class MirrorlessCamera(Camera):
     """
     A class that represents a mirrorless camera and inherits from the Camera class.
     """
+
     def __init__(self, model, resolution, zoom, memory_card_type, photos_count,
                  brand, lens, weight, video_formats):
+
         """
         Initializes a new instance of the MirrorlessCamera class.
         :param model: The model of the camera.
@@ -19,22 +22,31 @@ class MirrorlessCamera(Camera):
         :param weight: The weight of the camera.
         :param video_formats: The video formats supported by the camera.
         """
-        super().__init__(model, resolution, zoom, memory_card_type, photos_count,
-                         brand, lens)
+
+        super().__init__(brand, model, lens)
         self.weight = weight
-        self.videoFormat = video_formats
+        self.video_format = video_formats
+        self.resolution = resolution
+        self.zoom = zoom
+        self.memory_card_type = memory_card_type
+        self.photos_count = photos_count
+        self.the_most_popular_brands_set = {"GoPro", "Manta "}
 
     def takePhotos(self):
         """
         Returns a string representation of the camera's weight and video format.
         :return: A string representation of the camera's weight and video format.
         """
-        return f"MirrorlessCamera:\nWeight:{self.weight}\nVideo_format:{self.videoFormat}"
+        return f"MirrorlessCamera:\nWeight:{self.weight}\nVideo_format:{self.video_format}"
 
     def __str__(self):
         """
         Returns a string representation of the MirrorlessCamera instance.
         :return: A string representation of the MirrorlessCamera instance.
         """
-        return f"MirrorlessCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.erase_memory}, " \
+        return f"Mirrorless_camera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
+               f"photos_count={self.photos_count})"
+
+    def __repr__(self):
+        return f"MirrorlessCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
                f"photos_count={self.photos_count})"

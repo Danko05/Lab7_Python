@@ -1,3 +1,4 @@
+# pylint: disable = import-error
 from abc import ABC, abstractmethod
 
 
@@ -14,8 +15,7 @@ class Camera(ABC):
 
     __instance = None
 
-    def __init__(self, model, resolution, zoom, memory_card_type, photos_count,
-                 brand, lens):
+    def __init__(self, brand, model, lens):
         """
         Initializes a Camera instance with the given attributes.
 
@@ -27,41 +27,15 @@ class Camera(ABC):
         - photosCount (int): The number of photos taken by the camera.
         """
         self.model = model
-        self.resolution = resolution
-        self.zoom = zoom
-        self.memory_card_type = memory_card_type
-        self.photos_count = photos_count
         self.brand = brand
         self.lens = lens
+        self.the_most_popular_brands_set = set()
 
-    def reset_zoom(self):
-        """
-        Resets the zoom level of the camera to 1.0.
-        """
-        self.zoom = 1.0
+    def __iter__(self):
+        return iter(self.the_most_popular_brands_set)
 
-    def save_photo(self):
-        """
-        Increments the number of photos taken by the camera by 1.
-        """
-        self.photos_count += 1
-
-    def erase_memory(self):
-        """
-        Resets the number of photos taken by the camera to 0.
-        """
-        self.photos_count = 0
-
-    def change_settings(self, resolution, zoom):
-        """
-        Changes the resolution and zoom level of the camera.
-
-        Args:
-        - resolution (str): The new resolution of the camera.
-        - zoom (int): The new zoom level of the camera.
-        """
-        self.resolution = resolution
-        self.zoom = zoom
+    def get_attributes_by_type(self, data_type):
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
 
     @staticmethod
     def get_instance():
@@ -83,8 +57,7 @@ class Camera(ABC):
         Returns:
         - str: A string representation of the Camera instance.
         """
-        return f"Camera(model={self.model}, resolution={self.resolution}, zoom={self.zoom}, " \
-               f"memory_card_type={self.memory_card_type}, photosCount={self.photos_count})"
+        return f"Camera(model={self.model})"
 
     def main(self):
         cameras = [
