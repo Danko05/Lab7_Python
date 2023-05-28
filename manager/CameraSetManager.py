@@ -3,6 +3,8 @@ from models.FilmCamera import FilmCamera
 from models.VideoCamera import VideoCamera
 from models.MirrorlessCamera import MirrorlessCamera
 from manager.CameraManager import CameraManager
+import re
+import datetime
 
 
 class CameraSetManager:
@@ -31,6 +33,32 @@ class CameraSetManager:
         sd = self.camera_set_list[self.index]
         self.index += 1
         return sd
+
+    def snake_case(self):
+        def wrapper(*args, **kwargs):
+            if re.match(r'^[a-z]+(_[a-z]+)*$', self.__name__):
+                return self(*args, **kwargs)
+            else:
+                raise ValueError
+
+        return wrapper
+
+    @snake_case
+    def check_method_by_snake_case(self):
+        print("Method snake_case")
+
+    def save_history(self):
+        def wrapper(*args, **kwargs):
+            result = self(*args, **kwargs)
+            with open("history.txt", "a") as f:
+                f.write(f'{self.__name__} was called at {datetime.datetime.now()}\n')
+            return result
+
+        return wrapper
+
+    @save_history
+    def history_and_time(self):
+        print("Method called")
 
 
 def main():
@@ -76,6 +104,9 @@ def main():
     print(next(set_manager))
     manager.add_camera(digital_camera2)
     print(len(set_manager))
+
+    set_manager.check_method_by_snake_case()  # This will raise an error because the method name is not in snake_case
+    set_manager.history_and_time()
 
 
 if __name__ == '__main__':
