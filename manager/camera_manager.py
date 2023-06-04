@@ -1,11 +1,12 @@
 """
 Class file for
 """
-# pylint: disable = import-error
-from models.DigitalCamera import DigitalCamera
-from models.FilmCamera import FilmCamera
-from models.VideoCamera import VideoCamera
-from models.MirrorlessCamera import MirrorlessCamera
+
+from models.digital_camera import DigitalCamera
+from models.film_camera import FilmCamera
+from models.video_camera import VideoCamera
+from models.mirrorless_camera import MirrorlessCamera
+import logging
 
 
 class CameraManager:
@@ -28,7 +29,7 @@ class CameraManager:
         """
         for camera in self.cameras:
             print(camera)
-            print(camera.takePhotos())
+            print(camera.take_photos())
             print()
 
     def find_camera_by_model(self):
@@ -60,7 +61,7 @@ class CameraManager:
         return iter(self.cameras)
 
     def save_all_photo(self):
-        return [camera.takePhotos() for camera in self.cameras]
+        return [camera.take_photos() for camera in self.cameras]
 
     def enumerate_cameras(self):
         print(list(enumerate(self.cameras)))
@@ -72,6 +73,38 @@ class CameraManager:
 
         check_cameras = [camera.memory_card_type == "SD" for camera in self.cameras]
         return {"all": all(check_cameras), "any": any(check_cameras)}
+
+
+class BrandTooShortError(ValueError):
+    pass
+
+
+def logged(exception, mode="console"):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except exception as e:
+                if mode == "console":
+                    logging.basicConfig(level=logging.DEBUG)
+                    logging.exception(f"{func.__name__} raised an exception")
+                elif mode == "file":
+                    logging.basicConfig(filename="../Lab7_Python/file/logged.txt", level=logging.DEBUG)
+                    logging.exception(f"{func.__name__} raised an exception")
+                raise
+
+        return wrapper
+
+    return decorator
+
+
+@logged(BrandTooShortError, mode="file")
+def validate_brand(brand):
+    if len(brand) <= 3:
+        raise BrandTooShortError(brand)
+
+
+validate_brand("QIHE")
 
 
 def main():
@@ -130,10 +163,10 @@ def main():
     print(manager.check_cameras())
 
     print("\n All attribute by type int :")
-    attribute = digital_camera2.get_attributes_by_type(float)
+    attribute = digital_camera2.get_attributes_by_type(int)
     print(attribute)
 
-
+    print(manager[2])
 
 
 if __name__ == '__main__':

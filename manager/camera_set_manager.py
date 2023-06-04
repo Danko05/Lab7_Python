@@ -1,15 +1,15 @@
-from models.DigitalCamera import DigitalCamera
-from models.FilmCamera import FilmCamera
-from models.VideoCamera import VideoCamera
-from models.MirrorlessCamera import MirrorlessCamera
-from manager.CameraManager import CameraManager
+from models.digital_camera import DigitalCamera
+from models.film_camera import FilmCamera
+from models.video_camera import VideoCamera
+from models.mirrorless_camera import MirrorlessCamera
+from manager.camera_manager import CameraManager
 import re
 import datetime
 
 
 class CameraSetManager:
-    def __init__(self, CameraManager):
-        self.cameras = CameraManager
+    def __init__(self, camera_manager):
+        self.cameras = camera_manager
         self.index = 0
 
     def __len__(self):
@@ -30,11 +30,20 @@ class CameraSetManager:
     def __next__(self):
         if self.index >= len(self.camera_set_list):
             raise StopIteration
-        sd = self.camera_set_list[self.index]
+        s_d = self.camera_set_list[self.index]
         self.index += 1
-        return sd
+        return s_d
 
+    @staticmethod
     def snake_case(self):
+        """
+        Decorator to check if a method name follows the snake_case style.
+
+        :param self: method to check
+        :return: wrapper around the method to check
+        :raises ValueError: if the method name does not follow the snake_case style
+        """
+
         def wrapper(*args, **kwargs):
             if re.match(r'^[a-z]+(_[a-z]+)*$', self.__name__):
                 return self(*args, **kwargs)
@@ -45,19 +54,31 @@ class CameraSetManager:
 
     @snake_case
     def check_method_by_snake_case(self):
+        """
+        Prints "Method snake_case" if the method name follows the snake_case style.
+        """
         print("Method snake_case")
 
     def save_history(self):
+        """
+        Decorator to save the history of method calls.
+
+        :return: wrapper around the method to save its history
+        """
+
         def wrapper(*args, **kwargs):
             result = self(*args, **kwargs)
-            with open("history.txt", "a") as f:
-                f.write(f'{self.__name__} was called at {datetime.datetime.now()}\n')
+            with open("../Lab7_Python/file/history.txt", "a") as d:
+                d.write(f'{self.__name__} was called at {datetime.datetime.now()}\n')
             return result
 
         return wrapper
 
     @save_history
     def history_and_time(self):
+        """
+        Prints "Method called" and saves its history.
+        """
         print("Method called")
 
 
@@ -104,8 +125,10 @@ def main():
     print(next(set_manager))
     manager.add_camera(digital_camera2)
     print(len(set_manager))
+    print("getitem:")
+    print(set_manager[0])
 
-    set_manager.check_method_by_snake_case()  # This will raise an error because the method name is not in snake_case
+    set_manager.check_method_by_snake_case()
     set_manager.history_and_time()
 
 

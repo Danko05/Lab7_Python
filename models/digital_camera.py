@@ -1,5 +1,5 @@
 # pylint: disable = import-error
-from models.Camera import Camera
+from models.camera import Camera
 
 
 class DigitalCamera(Camera):
@@ -55,7 +55,7 @@ class DigitalCamera(Camera):
         self.resolution = resolution
         self.zoom = zoom
 
-    def takePhotos(self):
+    def take_photos(self):
         """
         Returns a string representation of the camera's resolution and zoom.
         :return: A string representation of the camera's resolution and zoom.

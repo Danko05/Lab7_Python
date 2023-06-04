@@ -1,5 +1,5 @@
 # pylint: disable = import-error
-from models.Camera import Camera
+from models.camera import Camera
 
 
 class VideoCamera(Camera):
@@ -30,7 +30,7 @@ class VideoCamera(Camera):
         self.photos_count = photos_count
         self.the_most_popular_brands_set = {"Olimp", "Nikon"}
 
-    def takePhotos(self):
+    def take_photos(self):
         """
         Returns a string representation of the camera's video format and matrix size.
         :return: A string representation of the camera's video format and matrix size.
