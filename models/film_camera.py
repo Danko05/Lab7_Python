@@ -1,5 +1,5 @@
 # pylint: disable = import-error
-from models.Camera import Camera
+from models.camera import Camera
 
 
 class FilmCamera(Camera):
@@ -29,7 +29,7 @@ class FilmCamera(Camera):
         self.photos_count = photos_count
         self.the_most_popular_brands_set = {"Panasonic", "Pentax"}
 
-    def takePhotos(self):
+    def take_photos(self):
         """
         Returns a string representation of the camera's film type and ISO.
         :return: A string representation of the camera's film type and ISO.

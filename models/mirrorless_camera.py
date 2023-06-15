@@ -1,5 +1,5 @@
 # pylint: disable = import-error
-from models.Camera import Camera
+from models.camera import Camera
 
 
 class MirrorlessCamera(Camera):
@@ -32,7 +32,7 @@ class MirrorlessCamera(Camera):
         self.photos_count = photos_count
         self.the_most_popular_brands_set = {"GoPro", "Manta "}
 
-    def takePhotos(self):
+    def take_photos(self):
         """
         Returns a string representation of the camera's weight and video format.
         :return: A string representation of the camera's weight and video format.

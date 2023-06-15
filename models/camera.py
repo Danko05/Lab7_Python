@@ -71,5 +71,5 @@ class Camera(ABC):
             print(camera)
 
     @abstractmethod
-    def takePhotos(self):
+    def take_photos(self):
         pass
