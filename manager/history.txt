@@ -1,0 +1,12 @@
+my_method was called at 2023-05-28 12:28:02.781204
+my_method was called at 2023-05-28 12:28:31.860172
+my_method was called at 2023-05-28 12:29:05.661526
+history_and_time was called at 2023-05-28 13:34:43.473279
+history_and_time was called at 2023-05-28 13:34:57.021553
+history_and_time was called at 2023-05-28 13:35:12.306470
+history_and_time was called at 2023-05-28 13:39:03.635016
+history_and_time was called at 2023-05-28 13:40:43.445476
+history_and_time was called at 2023-05-28 13:41:00.982141
+history_and_time was called at 2023-05-28 13:42:04.528616
+history_and_time was called at 2023-05-28 13:43:15.901398
+history_and_time was called at 2023-05-28 13:43:51.959832

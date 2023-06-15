@@ -1,3 +1,4 @@
+# pylint: disable = import-error
 from models.Camera import Camera
 
 
@@ -5,8 +6,9 @@ class VideoCamera(Camera):
     """
     A class that represents a video camera and inherits from the Camera class.
     """
+
     def __init__(self, model, resolution, zoom, memory_card_type, photos_count,
-                 brand, lens, videoFormat, matrixSize):
+                 brand, lens, video_format, matrix_size):
         """
         Initializes a new instance of the VideoCamera class.
         :param model: The model of the camera.
@@ -19,21 +21,30 @@ class VideoCamera(Camera):
         :param videoFormat: The video format used by the camera.
         :param matrixSize: The size of the matrix used by the camera.
         """
-        super().__init__(model, resolution, zoom, memory_card_type, photos_count, brand, lens)
-        self.videoFormat = videoFormat
-        self.matrixSize = matrixSize
+        super().__init__(brand, model, lens)
+        self.video_format = video_format
+        self.matrix_size = matrix_size
+        self.resolution = resolution
+        self.zoom = zoom
+        self.memory_card_type = memory_card_type
+        self.photos_count = photos_count
+        self.the_most_popular_brands_set = {"Olimp", "Nikon"}
 
     def takePhotos(self):
         """
         Returns a string representation of the camera's video format and matrix size.
         :return: A string representation of the camera's video format and matrix size.
         """
-        return f"VideoCamera:\nVideoFormat:{self.videoFormat}\nMatrixSize:{self.matrixSize})"
+        return f"Video_camera:\nVideo_format:{self.video_format}\nMatrix_size:{self.matrix_size})"
 
     def __str__(self):
         """
         Returns a string representation of the VideoCamera instance.
         :return: A string representation of the VideoCamera instance.
         """
-        return f"VideoCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.erase_memory}, " \
+        return f"VideoCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
+               f"photos_count={self.photos_count})"
+
+    def __repr__(self):
+        return f"Video_camera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
                f"photos_count={self.photos_count})"

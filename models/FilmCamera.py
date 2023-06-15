@@ -1,3 +1,4 @@
+# pylint: disable = import-error
 from models.Camera import Camera
 
 
@@ -5,6 +6,7 @@ class FilmCamera(Camera):
     """
     A class that represents a film camera and inherits from the Camera class.
     """
+
     def __init__(self, brand, model, resolution, zoom, memory_card_type, photos_count, lens, film_type, film_ISO):
         """
         Initializes a new instance of the FilmCamera class.
@@ -18,9 +20,14 @@ class FilmCamera(Camera):
         :param film_type: The type of film used by the camera.
         :param film_ISO: The ISO of the film used by the camera.
         """
-        super().__init__(model, resolution, zoom, memory_card_type, photos_count, brand, lens)
+        super().__init__(brand, model, lens)
         self.film_type = film_type
         self.film_ISO = film_ISO
+        self.resolution = resolution
+        self.zoom = zoom
+        self.memory_card_type = memory_card_type
+        self.photos_count = photos_count
+        self.the_most_popular_brands_set = {"Panasonic", "Pentax"}
 
     def takePhotos(self):
         """
@@ -34,5 +41,9 @@ class FilmCamera(Camera):
         Returns a string representation of the FilmCamera instance.
         :return: A string representation of the FilmCamera instance.
         """
-        return f"FilmCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.erase_memory}, " \
+        return f"FilmCamera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
                f"photos_count={self.photos_count}))"
+
+    def __repr__(self):
+        return f"Film_camera(resolution={self.resolution}, zoom={self.zoom}, memory_card_type={self.memory_card_type}, " \
+               f"photos_count={self.photos_count})"
