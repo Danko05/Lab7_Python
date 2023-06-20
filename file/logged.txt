@@ -1,40 +1,42 @@
-ERROR:root:validate_brand raised an exception
+ERROR:root:hfd 
 Traceback (most recent call last):
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 86, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 104, in validate_brand
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
     raise BrandTooShortError(brand)
-BrandTooShortError: aав
-ERROR:root:validate_brand raised an exception
+models.brand_too_short_error.BrandTooShortError: hfd
+ERROR:root:hfd 
 Traceback (most recent call last):
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 86, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 104, in validate_brand
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
     raise BrandTooShortError(brand)
-BrandTooShortError: aty
-ERROR:root:validate_brand raised an exception
+models.brand_too_short_error.BrandTooShortError: hfd
+ERROR:root:hfd 
 Traceback (most recent call last):
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 86, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 104, in validate_brand
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
     raise BrandTooShortError(brand)
-BrandTooShortError: aty
-ERROR:root:validate_brand raised an exception
+models.brand_too_short_error.BrandTooShortError: hfd
+ERROR:root:hfd 
 Traceback (most recent call last):
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 86, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 104, in validate_brand
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
     raise BrandTooShortError(brand)
-BrandTooShortError: QWE
-ERROR:root:validate_brand raised an exception
+models.brand_too_short_error.BrandTooShortError: hfd
+ERROR:root:hfd 
 Traceback (most recent call last):
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 86, in wrapper
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\manager\camera_manager.py", line 104, in validate_brand
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
     raise BrandTooShortError(brand)
-BrandTooShortError: QE
+models.brand_too_short_error.BrandTooShortError: hfd
+ERROR:root:hfd 
+Traceback (most recent call last):
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 85, in wrapper
+    func(*args, **kwargs)
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\pythonProject1\Lab7_Python\manager\camera_manager.py", line 102, in validate_brand
+    raise BrandTooShortError(brand)
+models.brand_too_short_error.BrandTooShortError: hfd
