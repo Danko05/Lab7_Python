@@ -89,7 +89,7 @@ def logged(exception, mode="console"):
                     logging.basicConfig(level=logging.DEBUG)
                     logging.exception(f"{func.__name__} raised an exception")
                 elif mode == "file":
-                    logging.basicConfig(filename="../Lab7_Python/file/logged.txt", level=logging.DEBUG)
+                    logging.basicConfig(filename="../manager/logged.txt", level=logging.DEBUG)
                     logging.exception(f"{func.__name__} raised an exception")
                 raise
 
@@ -104,7 +104,7 @@ def validate_brand(brand):
         raise BrandTooShortError(brand)
 
 
-validate_brand("QIHE")
+validate_brand("IHE")
 
 
 def main():

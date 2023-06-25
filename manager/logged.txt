@@ -1,0 +1,16 @@
+ERROR:root:validate_brand raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\Zvit\Python\Lab7_Python\manager\camera_manager.py", line 86, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\Zvit\Python\Lab7_Python\manager\camera_manager.py", line 104, in validate_brand
+    raise BrandTooShortError(brand)
+BrandTooShortError: I
+ERROR:root:validate_brand raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\Zvit\Python\Lab7_Python\manager\camera_manager.py", line 86, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danylo\OneDrive\Робочий стіл\Zvit\Python\Lab7_Python\manager\camera_manager.py", line 104, in validate_brand
+    raise BrandTooShortError(brand)
+BrandTooShortError: IHE

@@ -2,7 +2,7 @@ from models.digital_camera import DigitalCamera
 from models.film_camera import FilmCamera
 from models.video_camera import VideoCamera
 from models.mirrorless_camera import MirrorlessCamera
-from manager.camera_manager import CameraManager
+from manager.camera_manager import CameraManager, logged
 import re
 import datetime
 
@@ -58,7 +58,6 @@ class CameraSetManager:
         Prints "Method snake_case" if the method name follows the snake_case style.
         """
         print("Method snake_case")
-
     def save_history(self):
         """
         Decorator to save the history of method calls.
@@ -68,7 +67,7 @@ class CameraSetManager:
 
         def wrapper(*args, **kwargs):
             result = self(*args, **kwargs)
-            with open("../Lab7_Python/file/history.txt", "a") as d:
+            with open("../manager/history.txt", "a") as d:
                 d.write(f'{self.__name__} was called at {datetime.datetime.now()}\n')
             return result
 
